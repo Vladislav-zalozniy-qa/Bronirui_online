@@ -73,3 +73,36 @@ class Calendar:
 
     service_all_days = (By.XPATH, "//div[contains(@class,'znaimestapicker__day') and contains(@class,'is-available') "
                                   "and not(contains(@class,'is-previous-month'))and not(contains(@class,'is-next-month'))]")
+
+class GuestProfiles:
+    Add_guest_button = (By.CSS_SELECTOR, "button[aria-label='Добавить гостя']") # Кнопка добавить гостя
+    inp_no_status = (By.XPATH, "//span[@role='combobox' and @aria-label='Без статуса']") # Дропдаун начальный
+    drop_VIP = (By.XPATH, "//li[@role='option' and @aria-label='VIP']") # Вип в дропдауне
+    drop_regular = (By.XPATH, "//li[@role='option' and @aria-label='Постоянный гость']") # Постоянный в дропдауне
+    drop_blacklist = (By.XPATH, "//li[@role='option' and @aria-label='Черный список']") # Чёрный список в дропдауне
+    drop_no_status = (By.XPATH, "//li[@role='option' and @aria-label='Без статуса']") # Без статуса в дропдауне
+
+    inp_comment = (By.XPATH, "//textarea[@data-pc-name='textarea']") # Поле комментария
+    inp_citizenship = (By.XPATH, "//input[@role='combobox' and @placeholder='Начните вводить']") # Поле гражданство
+    inp_lastname = (By.XPATH, "//input[@placeholder='Введите фамилию']") # Поле фамилия
+    inp_firstname = (By.XPATH, "//input[@placeholder='Введите имя']") # Поле имя
+    inp_surname = (By.XPATH, "//input[@placeholder='Введите отчество']") # Поле отчетсво
+    checkbox_no_surname = (By.XPATH, "//input[@id='haventFathername' and @type='checkbox']")# Чекбокс (Нет отчетсва)
+
+    checkbox_man = (By.XPATH, "//input[@id='radio-group2-1' and @type='radio']") # Чекбокс пол мужской
+    checkbox_woman = (By.XPATH, "//input[@name='radio-group2' and @type='radio' and @value='2']") # Чекбокс пол женский
+    birthday = (By.XPATH, "//input[@data-pc-name='inputmask']") # Поле дата рождения
+    checkbox_privileged_category = (By.XPATH, "//input[@id='isPrivilegedCategory' and @type='checkbox']") # Чекбокс льготная категория
+    inp_privileged_category = (By.XPATH, "//div[@data-pc-name='dropdown' and .//span[@aria-label='Выбрать']]") # Инпут тип льготы
+    federal_priveleged = (By.XPATH, "//li[@role='option' and @aria-label='Федеральная льгота']") # Федеральная льгота
+    local_priveleged = (By.XPATH, "//li[@role='option' and @aria-label='Местная льгота']") # Местная льгота
+    Justification = (By.XPATH, "//textarea[@data-pc-name='textarea' and @placeholder='Укажите сведения о документе, подтверждающем льготную категорию']") # Обоснование
+
+    placeholder_phone = (By.XPATH, "//fieldset[.//legend[contains(., 'Контактные данные')]]//label[.//span[contains(., 'Телефон')]][1]//input") # Телефон
+    placeholder_email = (By.XPATH, "//fieldset[.//legend[contains(., 'Контактные данные')]]//label[.//span[contains(., 'E-mail')]][1]//input") # Email
+    placeholder_phone2 = (By.XPATH, "//fieldset[.//legend[contains(., 'Контактные данные')]]//label[.//span[contains(., 'Телефон дополнительный')]]//input") # Доп телефон
+    placeholder_email2 = (By.XPATH, "//fieldset[.//legend[contains(., 'Контактные данные')]]//label[.//span[contains(., 'Телефон дополнительный')]]//input") # Доп Email
+
+
+
+
