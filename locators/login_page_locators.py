@@ -75,7 +75,7 @@ class Calendar:
                                   "and not(contains(@class,'is-previous-month'))and not(contains(@class,'is-next-month'))]")
 
 class GuestProfiles:
-    Add_guest_button = (By.CSS_SELECTOR, "button[aria-label='Добавить гостя']") # Кнопка добавить гостя
+    add_guest_button = (By.CSS_SELECTOR, "button[aria-label='Добавить гостя']") # Кнопка добавить гостя
     inp_no_status = (By.XPATH, "//span[@role='combobox' and @aria-label='Без статуса']") # Дропдаун начальный
     drop_VIP = (By.XPATH, "//li[@role='option' and @aria-label='VIP']") # Вип в дропдауне
     drop_regular = (By.XPATH, "//li[@role='option' and @aria-label='Постоянный гость']") # Постоянный в дропдауне
@@ -84,24 +84,52 @@ class GuestProfiles:
 
     inp_comment = (By.XPATH, "//textarea[@data-pc-name='textarea']") # Поле комментария
     inp_citizenship = (By.XPATH, "//input[@role='combobox' and @placeholder='Начните вводить']") # Поле гражданство
-    inp_lastname = (By.XPATH, "//input[@placeholder='Введите фамилию']") # Поле фамилия
-    inp_firstname = (By.XPATH, "//input[@placeholder='Введите имя']") # Поле имя
-    inp_surname = (By.XPATH, "//input[@placeholder='Введите отчество']") # Поле отчетсво
+    citizenship_russia = (By.XPATH, "//li[@role='option' and normalize-space()='Россия']")
+    citizenship_USA = (By.XPATH, "//li[@role='option' and normalize-space()='США']")
+    inp_lastname = (By.XPATH, "//input[contains(@class,'b-input__field') and @placeholder='Введите фамилию']") # Поле фамилия
+    inp_firstname = (By.XPATH, "//input[contains(@class,'b-input__field') and @placeholder='Введите имя']") # Поле имя
+    inp_surname = (By.XPATH, "//input[contains(@class,'b-input__field') and @placeholder='Введите отчество']") # Поле отчетсво
     checkbox_no_surname = (By.XPATH, "//input[@id='haventFathername' and @type='checkbox']")# Чекбокс (Нет отчетсва)
 
-    checkbox_man = (By.XPATH, "//input[@id='radio-group2-1' and @type='radio']") # Чекбокс пол мужской
-    checkbox_woman = (By.XPATH, "//input[@name='radio-group2' and @type='radio' and @value='2']") # Чекбокс пол женский
+    checkbox_man = (By.XPATH, "//label[contains(., 'Муж')]") # Чекбокс пол мужской
+    checkbox_woman = (By.XPATH, "//label[contains(., 'Жен')]") # Чекбокс пол женский
     birthday = (By.XPATH, "//input[@data-pc-name='inputmask']") # Поле дата рождения
     checkbox_privileged_category = (By.XPATH, "//input[@id='isPrivilegedCategory' and @type='checkbox']") # Чекбокс льготная категория
     inp_privileged_category = (By.XPATH, "//div[@data-pc-name='dropdown' and .//span[@aria-label='Выбрать']]") # Инпут тип льготы
     federal_priveleged = (By.XPATH, "//li[@role='option' and @aria-label='Федеральная льгота']") # Федеральная льгота
     local_priveleged = (By.XPATH, "//li[@role='option' and @aria-label='Местная льгота']") # Местная льгота
-    Justification = (By.XPATH, "//textarea[@data-pc-name='textarea' and @placeholder='Укажите сведения о документе, подтверждающем льготную категорию']") # Обоснование
+    justification = (By.XPATH, "//textarea[@data-pc-name='textarea' and @placeholder='Укажите сведения о документе, подтверждающем льготную категорию']") # Обоснование
 
     placeholder_phone = (By.XPATH, "//fieldset[.//legend[contains(., 'Контактные данные')]]//label[.//span[contains(., 'Телефон')]][1]//input") # Телефон
     placeholder_email = (By.XPATH, "//fieldset[.//legend[contains(., 'Контактные данные')]]//label[.//span[contains(., 'E-mail')]][1]//input") # Email
     placeholder_phone2 = (By.XPATH, "//fieldset[.//legend[contains(., 'Контактные данные')]]//label[.//span[contains(., 'Телефон дополнительный')]]//input") # Доп телефон
     placeholder_email2 = (By.XPATH, "//fieldset[.//legend[contains(., 'Контактные данные')]]//label[.//span[contains(., 'Телефон дополнительный')]]//input") # Доп Email
+
+    document_type = (By.XPATH, "//span[text()='Вид документа']/following-sibling::div//span[@role='combobox']") # Дропдаун тип документа
+    passport_rus = (By.XPATH, "//li[@role='option' and @aria-label='Паспорт гражданина Российской Федерации']") # Пасспорт россии
+    input_series = (By.XPATH, "//input[@placeholder='Введите серию']") # Инпут серии паспрта
+    input_number = (By.XPATH, "//input[@placeholder='Введите номер']") # Инпут номера паспорта
+    input_date_issue = (By.XPATH, "//span[text()='Дата выдачи']/following-sibling::*//input") # Инпут дата выдачи паспорта
+    input_department_code = (By.XPATH, "//span[text()='Код подразделения']/following-sibling::div//input") # Инпут кода подразделения
+    input_kem_vidan = (By.XPATH, "//span[text()='Кем выдан']/following-sibling::div//input") # Инпут кем выдан
+    dep_code_moscow = (By.XPATH, "//li[text()='773-040 111 ОТДЕЛЕНИЕ МИЛИЦИИ ОВД ТИМИРЯЗЕВСКИЙ УВД САО Г. МОСКВЫ']") # Выбор дропдауна мск
+    dep_code_moscow2 = (By.XPATH, "//li[contains(text(),'773-040 111 ОТДЕЛЕНИЕ МИЛИЦИИ')]") # Выбор дропдауна МСК
+######### Место рождения
+    input_gos = (By.XPATH, "//input[@role='combobox' and contains(@aria-controls,'pv_id_9')]") # Инпут государство
+    input_reg = (By.XPATH, "//input[@placeholder='Введите регион']") # Инпут региона
+    drop_rus = (By.XPATH, "//li[normalize-space()='Россия']") # Выпадающий список россия
+    checkbox_no_registration = (By.XPATH, "//input[@id='haventResidence']") # Чекбокс Нет регистрации
+
+    status_mvd_on = (By.XPATH, "//span[contains(@class,'guest-mvd-status__text') and normalize-space()='Готовы к отправке']") # Статус карточки
+
+    button_save_guest = (By.XPATH, "//button[.//div[normalize-space()='Добавить гостя']]") # Кнопка сохранить гостя
+
+    first_guest_list = (By.XPATH, "(//div[contains(@class,'_link_rik58_37')])[1]") # первая ячейка имя
+    first_birthday = (By.XPATH, "(//div[contains(@class,'_item_3pe77_8')])[2]") # первая ячейка дата рождения
+    first_phone = (By.XPATH, "(//div[contains(@class,'_item_3pe77_8'))[3]") # первая ячейка телефон
+    first_email = (By.XPATH, "(//div[contains(@class,'_item_3pe77_8')])[4]") # первая ячейка почта
+    guest_comment = (By.XPATH,"(//div[contains(@class,'_item_3pe77_8')])[7]") # первая ячейка коммент
+    first_user_status = (By.XPATH,"(//div[contains(@class,'_item_3pe77_8')])[5]//span") # первая ячейка статус
 
 
 

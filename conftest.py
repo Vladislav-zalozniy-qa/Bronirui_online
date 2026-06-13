@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from locators.login_page_locators import LoginPageLocators, BronListLocators, HotelLocators
 import os
 from selenium.webdriver import Chrome
+import uuid
 
 
 @pytest.fixture
@@ -39,3 +40,14 @@ def hotel_switch(driver, autorize_user):
     wait = WebDriverWait(driver, 10)
     driver.find_element(*HotelLocators.hotel3701).click()
     wait.until(ec.element_to_be_clickable(HotelLocators.hotel5301)).click()
+
+
+@pytest.fixture
+def email_value():
+    return f"autotest_{uuid.uuid4().hex[:8]}@mail.ru"
+
+
+@pytest.fixture
+def phone_value():
+    import random
+    return f"89{random.randint(100000000, 999999999)}"
