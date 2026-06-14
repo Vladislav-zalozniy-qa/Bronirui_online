@@ -82,14 +82,34 @@ class GuestProfiles:
     drop_blacklist = (By.XPATH, "//li[@role='option' and @aria-label='Черный список']") # Чёрный список в дропдауне
     drop_no_status = (By.XPATH, "//li[@role='option' and @aria-label='Без статуса']") # Без статуса в дропдауне
 
+# Российская карточка
     inp_comment = (By.XPATH, "//textarea[@data-pc-name='textarea']") # Поле комментария
     inp_citizenship = (By.XPATH, "//input[@role='combobox' and @placeholder='Начните вводить']") # Поле гражданство
     citizenship_russia = (By.XPATH, "//li[@role='option' and normalize-space()='Россия']")
-    citizenship_USA = (By.XPATH, "//li[@role='option' and normalize-space()='США']")
     inp_lastname = (By.XPATH, "//input[contains(@class,'b-input__field') and @placeholder='Введите фамилию']") # Поле фамилия
     inp_firstname = (By.XPATH, "//input[contains(@class,'b-input__field') and @placeholder='Введите имя']") # Поле имя
     inp_surname = (By.XPATH, "//input[contains(@class,'b-input__field') and @placeholder='Введите отчество']") # Поле отчетсво
     checkbox_no_surname = (By.XPATH, "//input[@id='haventFathername' and @type='checkbox']")# Чекбокс (Нет отчетсва)
+
+# Иностранная карточка
+    citizenship_USA = (By.XPATH, "//li[@role='option' and normalize-space()='США']")
+    inp_lastname_ru = (By.XPATH,"//span[normalize-space()='Фамилия (кириллица)']/ancestor::label//input")
+    inp_firstname_ru  = (By.XPATH,"//span[normalize-space()='Имя (кириллица)']/ancestor::label//input")
+    inp_surname_ru = (By.XPATH,"//span[normalize-space()='Отчество (кириллица)']/ancestor::label//input")
+    inp_lastname_eu = (By.XPATH,"//span[normalize-space()='Фамилия (латиница)']/ancestor::label//input")
+    inp_firstname_eu = (By.XPATH,"//span[normalize-space()='Имя (латиница)']/ancestor::label//input")
+    inp_surname_eu = (By.XPATH,"//span[normalize-space()='Отчество (латиница)']/ancestor::label//input")
+    profession = (By.XPATH, "//span[normalize-space() ='Профессия']/following-sibling::div//input")
+    profession_bint = (By.XPATH, "//li[@role='option' and normalize-space()='Заготовщик бинта']")
+    target = (By.XPATH, "//span[normalize-space()='Цель въезда']/following-sibling::div")
+    target_tur =  (By.XPATH, "//li[@role='option'][.//span[normalize-space()='Туризм']]")
+    vid_document = (By.XPATH, "//span[normalize-space()='Вид документа']/following-sibling::div//span[@role='combobox']")
+    vid_temporary_identity = (By.XPATH, "//li[@role='option'][.//span[normalize-space()='Временное удостоверение личности лица без гражданства в РФ']]")
+    input_gos_eu = (By.XPATH, "//span[normalize-space()='Государство']/ancestor::div[contains(@class,'ui-auto-complete')]//input")
+    checkbox_no_document_country = (By.XPATH, "//input[@type='checkbox' and @name='haventStayDocument']")
+    buton_upload_document = (By.XPATH, "//button[@aria-label='Загрузить документ']")
+    checkbox_no_migration_card = (By.ID, "notHaveMigrationDocument")
+
 
     checkbox_man = (By.XPATH, "//label[contains(., 'Муж')]") # Чекбокс пол мужской
     checkbox_woman = (By.XPATH, "//label[contains(., 'Жен')]") # Чекбокс пол женский
@@ -118,6 +138,7 @@ class GuestProfiles:
     input_gos = (By.XPATH, "//input[@role='combobox' and contains(@aria-controls,'pv_id_9')]") # Инпут государство
     input_reg = (By.XPATH, "//input[@placeholder='Введите регион']") # Инпут региона
     drop_rus = (By.XPATH, "//li[normalize-space()='Россия']") # Выпадающий список россия
+    drop_usa = (By.XPATH, "//li[@role='option' and normalize-space()='США']") # Выпадающий список сша
     checkbox_no_registration = (By.XPATH, "//input[@id='haventResidence']") # Чекбокс Нет регистрации
 
     status_mvd_on = (By.XPATH, "//span[contains(@class,'guest-mvd-status__text') and normalize-space()='Готовы к отправке']") # Статус карточки
