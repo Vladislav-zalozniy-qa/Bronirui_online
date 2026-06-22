@@ -1,7 +1,7 @@
 from locators.login_page_locators import BronListLocators, SideMenuLocators, NewBookingWindow, Calendar, FastBookService
 import os
 import allure
-from pages.base_pages import LoginPage
+from pages.login_pages import LoginPage
 from pages.booking_pages import BookingPage
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
@@ -18,6 +18,7 @@ def test_autorize_user(driver):
     login_page.enter_password(os.getenv("PASSWORD"))
     login_page.click_login_button()
     login_page.wait_authorized()
+    assert driver.current_url == "https://lk.reliz-br-onl.ru/?filter[layout]=1"
 
 
 @allure.suite("Создание бронирования")
@@ -33,7 +34,6 @@ def test_direct_booking(driver,autorize_user,hotel_switch):
     booking_page.save_booking(NewBookingWindow)
     booking_page.open_booking_list()
     first_card_text = booking_page.get_first_card_text(NewBookingWindow)
-
     assert "Влад Влад" in first_card_text
 
 
