@@ -120,10 +120,12 @@ class GuestProfiles:
     local_priveleged = (By.XPATH, "//li[@role='option' and @aria-label='Местная льгота']") # Местная льгота
     justification = (By.XPATH, "//textarea[@data-pc-name='textarea' and @placeholder='Укажите сведения о документе, подтверждающем льготную категорию']") # Обоснование
 
+
     placeholder_phone = (By.XPATH, "//fieldset[.//legend[contains(., 'Контактные данные')]]//label[.//span[contains(., 'Телефон')]][1]//input") # Телефон
     placeholder_email = (By.XPATH, "//fieldset[.//legend[contains(., 'Контактные данные')]]//label[.//span[contains(., 'E-mail')]][1]//input") # Email
     placeholder_phone2 = (By.XPATH, "//fieldset[.//legend[contains(., 'Контактные данные')]]//label[.//span[contains(., 'Телефон дополнительный')]]//input") # Доп телефон
     placeholder_email2 = (By.XPATH, "//fieldset[.//legend[contains(., 'Контактные данные')]]//label[.//span[contains(., 'Телефон дополнительный')]]//input") # Доп Email
+
 
     document_type = (By.XPATH, "//span[text()='Вид документа']/following-sibling::div//span[@role='combobox']") # Дропдаун тип документа
     passport_rus = (By.XPATH, "//li[@role='option' and @aria-label='Паспорт гражданина Российской Федерации']") # Пасспорт россии
@@ -141,9 +143,10 @@ class GuestProfiles:
     drop_usa = (By.XPATH, "//li[@role='option' and normalize-space()='США']") # Выпадающий список сша
     checkbox_no_registration = (By.XPATH, "//input[@id='haventResidence']") # Чекбокс Нет регистрации
 
-    status_mvd_on = (By.XPATH, "//span[contains(@class,'guest-mvd-status__text') and normalize-space()='Готовы к отправке']") # Статус карточки
 
+    status_mvd_on = (By.XPATH, "//span[contains(@class,'guest-mvd-status__text') and normalize-space()='Готовы к отправке']") # Статус карточки
     button_save_guest = (By.XPATH, "//button[.//div[normalize-space()='Добавить гостя']]") # Кнопка сохранить гостя
+
 
     first_guest_list = (By.XPATH, "(//div[contains(@class,'_link_rik58_37')])[1]") # первая ячейка имя
     first_birthday = (By.XPATH, "(//div[contains(@class,'_item_3pe77_8')])[2]") # первая ячейка дата рождения
@@ -151,6 +154,17 @@ class GuestProfiles:
     first_email = (By.XPATH, "(//div[contains(@class,'_item_3pe77_8')])[4]") # первая ячейка почта
     guest_comment = (By.XPATH,"(//div[contains(@class,'_item_3pe77_8')])[7]") # первая ячейка коммент
     first_user_status = (By.XPATH,"(//div[contains(@class,'_item_3pe77_8')])[5]//span") # первая ячейка статус
+
+
+#### Боковые кнопки таблицы (бургер меню)
+    last_button = (By.XPATH, "(//td[last()]//button)[1]")
+    edit_profile_button = (By.XPATH, "//div[normalize-space()='Редактировать профиль']")
+    make_reservation_button = (By.XPATH, "//div[normalize-space()='Оформить бронь']")
+    add_to_blacklist_button = (By.XPATH, "//div[normalize-space()='Добавить в черный список']")
+    delete_profiles_button = (By.XPATH, "//div[normalize-space()='Удалить профиль гостя']")
+
+    confirmation_deletion_button = (By.XPATH, "//button[.//span[normalize-space()='Удалить профиль']]")
+    delete_popup = (By.XPATH, "//div[normalize-space()='Профиль гостя успешно удален.']")
 
 
 
